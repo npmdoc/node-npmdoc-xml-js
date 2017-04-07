@@ -1,0 +1,614 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/nashwaan/xml-js#readme"
+
+    >xml-js (v1.0.2)</a>
+</h1>
+<h4>A convertor between XML text and Javascript object / JSON text.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml-js">module xml-js</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.js2xml">
+            function <span class="apidocSignatureSpan">xml-js.</span>js2xml
+            <span class="apidocSignatureSpan">(js, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.json2xml">
+            function <span class="apidocSignatureSpan">xml-js.</span>json2xml
+            <span class="apidocSignatureSpan">(json, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.xml2js">
+            function <span class="apidocSignatureSpan">xml-js.</span>xml2js
+            <span class="apidocSignatureSpan">(xml, userOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.xml2json">
+            function <span class="apidocSignatureSpan">xml-js.</span>xml2json
+            <span class="apidocSignatureSpan">(xml, userOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml-js.</span>common</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml-js.common">module xml-js.common</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.copyOptions">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>copyOptions
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.ensureFlagExists">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>ensureFlagExists
+            <span class="apidocSignatureSpan">(item, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.ensureKeyExists">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>ensureKeyExists
+            <span class="apidocSignatureSpan">(key, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.ensureSpacesExists">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>ensureSpacesExists
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.getCommandLineHelp">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>getCommandLineHelp
+            <span class="apidocSignatureSpan">(command, requiredArgs, optionalArgs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.mapCommandLineArgs">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>mapCommandLineArgs
+            <span class="apidocSignatureSpan">(requiredArgs, optionalArgs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.sanitize">
+            function <span class="apidocSignatureSpan">xml-js.common.</span>sanitize
+            <span class="apidocSignatureSpan">(text)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml-js" id="apidoc.module.xml-js">module xml-js</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.js2xml" id="apidoc.element.xml-js.js2xml">
+        function <span class="apidocSignatureSpan">xml-js.</span>js2xml
+        <span class="apidocSignatureSpan">(js, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">js2xml = function (js, options) {
+    &#x27;use strict&#x27;;
+    options = validateOptions(options);
+    var xml = &#x27;&#x27;;
+    if (options.compact) {
+        xml = writeElementsCompact(js, options, 0, true);
+    } else {
+        if (js[options.declarationKey]) {
+            xml += writeDeclaration(js[options.declarationKey], options);
+        }
+        if (js[options.elementsKey] &#x26;&#x26; js[options.elementsKey].length) {
+            xml += writeElements(js[options.elementsKey], options, 0, !xml);
+        }
+    }
+    return xml;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.json2xml" id="apidoc.element.xml-js.json2xml">
+        function <span class="apidocSignatureSpan">xml-js.</span>json2xml
+        <span class="apidocSignatureSpan">(json, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json2xml = function (json, options) {
+    &#x27;use strict&#x27;;
+    if (json instanceof Buffer) {
+        json = json.toString();
+    }
+    var js = null;
+    if (typeof (json) === &#x27;string&#x27;) {
+        try {
+            js = JSON.parse(json);
+        } catch (e) {
+            throw new Error(&#x22;The JSON structure is invalid&#x22;);
+        }
+    } else {
+        js = json;
+    }
+    return js2xml(js, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+To convert JavaScript object to XML text, use `js2xml()`. To convert JSON text to XML text, use `json2xml()`.
+
+```js
+var convert = require(&#x27;xml-js&#x27;);
+var json = require(&#x27;fs&#x27;).readFileSync(&#x27;test.json&#x27;, &#x27;utf8&#x27;);
+var options = {ignoreText: true, spaces: 4};
+var result = convert.<span class="apidocCodeKeywordSpan">json2xml</span>(json, options);
+console.log(result);
+```
+
+### Options for Converting JS object / JSON → XML
+
+The below options are applicable for both `js2xml()` and `json2xml()` functions.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.xml2js" id="apidoc.element.xml-js.xml2js">
+        function <span class="apidocSignatureSpan">xml-js.</span>xml2js
+        <span class="apidocSignatureSpan">(xml, userOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">xml2js = function (xml, userOptions) {
+
+    var parser = pureJsParser ? sax.parser(true, {}) : parser = new expat.Parser(&#x27;UTF-8&#x27;);
+    var result = {};
+    currentElement = result;
+
+    options = validateOptions(userOptions);
+
+    if (pureJsParser) {
+        parser.onopentag = onStartElement;
+        parser.ontext = onText;
+        parser.oncomment = onComment;
+        parser.onclosetag = onEndElement;
+        parser.onerror = onError;
+        parser.oncdata = onCdata;
+        parser.onprocessinginstruction = onDeclaration;
+    } else {
+        parser.on(&#x27;startElement&#x27;, onStartElement);
+        parser.on(&#x27;text&#x27;, onText);
+        parser.on(&#x27;comment&#x27;, onComment);
+        parser.on(&#x27;endElement&#x27;, onEndElement);
+        parser.on(&#x27;error&#x27;, onError);
+        //parser.on(&#x27;startCdata&#x27;, onStartCdata);
+        //parser.on(&#x27;endCdata&#x27;, onEndCdata);
+        //parser.on(&#x27;entityDecl&#x27;, onEntityDecl);
+    }
+
+    if (pureJsParser) {
+        parser.write(xml).close();
+    } else {
+        if (!parser.parse(xml)) {
+            throw new Error(&#x27;XML parsing error: &#x27; + parser.getError());
+        }
+    }
+
+    if (result[options.elementsKey]) {
+        var temp = result[options.elementsKey];
+        delete result[options.elementsKey];
+        result[options.elementsKey] = temp;
+        delete result.text;
+    }
+
+    return result;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+To convert XML text to JavaScript object, use `xml2js()`. To convert XML text to JSON text, use `xml2json()`.
+
+```js
+var convert = require(&#x27;xml-js&#x27;);
+var xml = require(&#x27;fs&#x27;).readFileSync(&#x27;test.xml&#x27;, &#x27;utf8&#x27;);
+var options = {ignoreText: true, alwaysChildren: true};
+var result = convert.<span class="apidocCodeKeywordSpan">xml2js</span>(xml, options); // or convert.xml2json(xml, options)
+console.log(result);
+```
+
+### Options for Converting XML → JS object / JSON
+
+The below options are applicable for both `xml2js()` and `xml2json()` functions.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.xml2json" id="apidoc.element.xml-js.xml2json">
+        function <span class="apidocSignatureSpan">xml-js.</span>xml2json
+        <span class="apidocSignatureSpan">(xml, userOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">xml2json = function (xml, userOptions) {
+    &#x27;use strict&#x27;;
+    var options, js, json, parentKey;
+    options = validateOptions(userOptions);
+    js = xml2js(xml, options);
+    parentKey = &#x27;compact&#x27; in options &#x26;&#x26; options.compact ? &#x27;_parent&#x27; : &#x27;parent&#x27;;
+    if (&#x27;addParent&#x27; in options &#x26;&#x26; options.addParent) {
+        json = JSON.stringify(js, function (k, v) { return k === parentKey? &#x27;_&#x27; : v; }, options.spaces);
+    } else {
+        json = JSON.stringify(js, null, options.spaces);
+    }
+    return json.replace(/\u2028/g, &#x27;\\u2028&#x27;).replace(/\u2029/g, &#x27;\\u2029&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var xml =
+&#x27;&#x3c;?xml version=&#x22;1.0&#x22; encoding=&#x22;utf-8&#x22;?&#x3e;&#x27; +
+&#x27;&#x3c;note importance=&#x22;high&#x22; logged=&#x22;true&#x22;&#x3e;&#x27; +
+&#x27;    &#x3c;title&#x3e;Happy&#x3c;/title&#x3e;&#x27; +
+&#x27;    &#x3c;todo&#x3e;Work&#x3c;/todo&#x3e;&#x27; +
+&#x27;    &#x3c;todo&#x3e;Play&#x3c;/todo&#x3e;&#x27; +
+&#x27;&#x3c;/note&#x3e;&#x27;;
+var result1 = convert.<span class="apidocCodeKeywordSpan">xml2json</span>(xml, {compact: true, spaces: 4});
+var result2 = convert.xml2json(xml, {compact: false, spaces: 4});
+console.log(result1, &#x27;\n&#x27;, result2);
+```
+
+To see the result of this code, see the output above in *Synopsis* section.
+
+Or [run and edit](https://runkit.com/587874e079a2f60013c1f5ac/587874e079a2f60013c1f5ad) this code live in the browser.
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml-js.common" id="apidoc.module.xml-js.common">module xml-js.common</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.copyOptions" id="apidoc.element.xml-js.common.copyOptions">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>copyOptions
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">copyOptions = function (options) {
+    var key, copy = {};
+    for (key in options) {
+        if (options.hasOwnProperty(key)) {
+            copy[key] = options[key];
+        }
+    }
+    return copy;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+
+var common = require(&#x27;./common&#x27;);
+
+function validateOptions (userOptions) {
+var options = common.<span class="apidocCodeKeywordSpan">copyOptions</span>(userOptions);
+common.ensureFlagExists(&#x27;ignoreDeclaration&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreAttributes&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreText&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreComment&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreCdata&#x27;, options);
+common.ensureFlagExists(&#x27;compact&#x27;, options);
+common.ensureFlagExists(&#x27;fullTagEmptyElement&#x27;, options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.ensureFlagExists" id="apidoc.element.xml-js.common.ensureFlagExists">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>ensureFlagExists
+        <span class="apidocSignatureSpan">(item, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ensureFlagExists = function (item, options) {
+    if (!(item in options) || typeof options[item] !== &#x27;boolean&#x27;) {
+        options[item] = false;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+
+var common = require(&#x27;./common&#x27;);
+
+function validateOptions (userOptions) {
+var options = common.copyOptions(userOptions);
+common.<span class="apidocCodeKeywordSpan">ensureFlagExists</span>(&#x27;ignoreDeclaration&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreAttributes&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreText&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreComment&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreCdata&#x27;, options);
+common.ensureFlagExists(&#x27;compact&#x27;, options);
+common.ensureFlagExists(&#x27;fullTagEmptyElement&#x27;, options);
+common.ensureSpacesExists(options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.ensureKeyExists" id="apidoc.element.xml-js.common.ensureKeyExists">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>ensureKeyExists
+        <span class="apidocSignatureSpan">(key, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ensureKeyExists = function (key, options) {
+    if (!(key + &#x27;Key&#x27; in options) || typeof options[key + &#x27;Key&#x27;] !== &#x27;string&#x27;) {
+        options[key + &#x27;Key&#x27;] = options.compact ? &#x27;_&#x27; + key : key;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+common.ensureFlagExists(&#x27;ignoreCdata&#x27;, options);
+common.ensureFlagExists(&#x27;compact&#x27;, options);
+common.ensureFlagExists(&#x27;fullTagEmptyElement&#x27;, options);
+common.ensureSpacesExists(options);
+if (typeof options.spaces === &#x27;number&#x27;) {
+    options.spaces = Array(options.spaces + 1).join(&#x27; &#x27;);
+}
+common.<span class="apidocCodeKeywordSpan">ensureKeyExists</span>(&#x27;declaration&#x27;, options);
+common.ensureKeyExists(&#x27;attributes&#x27;, options);
+common.ensureKeyExists(&#x27;text&#x27;, options);
+common.ensureKeyExists(&#x27;comment&#x27;, options);
+common.ensureKeyExists(&#x27;cdata&#x27;, options);
+common.ensureKeyExists(&#x27;type&#x27;, options);
+common.ensureKeyExists(&#x27;name&#x27;, options);
+common.ensureKeyExists(&#x27;elements&#x27;, options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.ensureSpacesExists" id="apidoc.element.xml-js.common.ensureSpacesExists">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>ensureSpacesExists
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ensureSpacesExists = function (options) {
+    if (!(&#x27;spaces&#x27; in options) || (typeof options.spaces !== &#x27;number&#x27; &#x26;&#x26; typeof options.spaces !== &#x27;string&#x27;)) {
+        options.spaces = 0;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+common.ensureFlagExists(&#x27;ignoreDeclaration&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreAttributes&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreText&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreComment&#x27;, options);
+common.ensureFlagExists(&#x27;ignoreCdata&#x27;, options);
+common.ensureFlagExists(&#x27;compact&#x27;, options);
+common.ensureFlagExists(&#x27;fullTagEmptyElement&#x27;, options);
+common.<span class="apidocCodeKeywordSpan">ensureSpacesExists</span>(options);
+if (typeof options.spaces === &#x27;number&#x27;) {
+    options.spaces = Array(options.spaces + 1).join(&#x27; &#x27;);
+}
+common.ensureKeyExists(&#x27;declaration&#x27;, options);
+common.ensureKeyExists(&#x27;attributes&#x27;, options);
+common.ensureKeyExists(&#x27;text&#x27;, options);
+common.ensureKeyExists(&#x27;comment&#x27;, options);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.getCommandLineHelp" id="apidoc.element.xml-js.common.getCommandLineHelp">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>getCommandLineHelp
+        <span class="apidocSignatureSpan">(command, requiredArgs, optionalArgs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCommandLineHelp = function (command, requiredArgs, optionalArgs) {
+    var reqArgs = requiredArgs.reduce(function (res, arg) {return res + &#x27; &#x3c;&#x27; + arg.arg + &#x27;&#x3e;&#x27;;}, &#x27;&#x27;);
+    var output = &#x27;Usage: &#x27; + command + reqArgs + &#x27; [options]&#x27; + &#x27;\n&#x27;;
+    requiredArgs.forEach(function (argument) {
+        output += &#x27;  &#x3c;&#x27; + argument.arg + &#x27;&#x3e;&#x27; + Array(20 - argument.arg.length).join(&#x27; &#x27;) + argument.desc + &#x27;\n&#x27;;
+    });
+    output += &#x27;\nOptions:&#x27; + &#x27;\n&#x27;;
+    optionalArgs.forEach(function (argument) {
+        output += &#x27;  --&#x27; + argument.arg + Array(20 - argument.arg.length).join(&#x27; &#x27;) + argument.desc + &#x27;\n&#x27;;
+    });
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.mapCommandLineArgs" id="apidoc.element.xml-js.common.mapCommandLineArgs">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>mapCommandLineArgs
+        <span class="apidocSignatureSpan">(requiredArgs, optionalArgs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">mapCommandLineArgs = function (requiredArgs, optionalArgs) {
+    var options = {}, r, o, a = 2;
+    for (r = 0; r &#x3c; requiredArgs.length; r += 1) {
+        if (a &#x3c; process.argv.length &#x26;&#x26; process.argv[a].substr(0, 1) !== &#x27;-&#x27; &#x26;&#x26; process.argv[a] !== &#x27;JASMINE_CONFIG_PATH=./jasmine
+.json&#x27;) {
+            options[requiredArgs[r].option] = process.argv[a++];
+        } else {
+            break;
+        }
+    }
+    for (; a &#x3c; process.argv.length; a += 1) {
+        for (o = 0; o &#x3c; optionalArgs.length; o += 1) {
+            if (optionalArgs[o].alias === process.argv[a].slice(1) || optionalArgs[o].arg === process.argv[a].slice(2)) {
+                break;
+            }
+        }
+        if (o &#x3c; optionalArgs.length) {
+            switch (optionalArgs[o].type) {
+                case &#x27;file&#x27;: case &#x27;string&#x27;: case &#x27;number&#x27;:
+                    if (a + 1 &#x3c; process.argv.length) {
+                        a += 1;
+                        options[optionalArgs[o].option] = (optionalArgs[o].type === &#x27;number&#x27; ? Number(process.argv[a]) : process
+.argv[a]);
+                    }
+                    break;
+                case &#x27;flag&#x27;:
+                    options[optionalArgs[o].option] = true; break;
+            }
+        }
+    }
+    return options;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.common.sanitize" id="apidoc.element.xml-js.common.sanitize">
+        function <span class="apidocSignatureSpan">xml-js.common.</span>sanitize
+        <span class="apidocSignatureSpan">(text)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sanitize = function (text) {
+    return text.replace(/&#x26;/g, &#x22;&#x26;amp;&#x22;).replace(/&#x3c;/g, &#x22;&#x26;lt;&#x22;).replace(/&#x3e;/g, &#x22;&#x26;gt;&#x22;).replace(/&#x22;/g, &#x22;&#x26;quot;&#x22;).replace(/&#x27;/g, &#x22;&#x26;#39;&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (options.trim) {
+    text = text.trim();
+}
+if (options.nativeType) {
+    text = nativeType(text);
+}
+if (options.sanitize) {
+    text = common.<span class="apidocCodeKeywordSpan">sanitize</span>(text);
+}
+addField(&#x27;text&#x27;, text, options);
+}
+
+function onComment (comment) {
+if (options.ignoreComment) {
+    return;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
