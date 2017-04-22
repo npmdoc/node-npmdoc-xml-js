@@ -96,6 +96,12 @@
 
         </li>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml-js.</span>index</span>
+
+        </li>
+
     </ol></li>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.xml-js.common">module xml-js.common</a><ol>
@@ -159,6 +165,46 @@
             <a class="apidocElementLiA" href="#apidoc.element.xml-js.common.sanitize">
             function <span class="apidocSignatureSpan">xml-js.common.</span>sanitize
             <span class="apidocSignatureSpan">(text)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml-js.index">module xml-js.index</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.index.js2xml">
+            function <span class="apidocSignatureSpan">xml-js.index.</span>js2xml
+            <span class="apidocSignatureSpan">(js, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.index.json2xml">
+            function <span class="apidocSignatureSpan">xml-js.index.</span>json2xml
+            <span class="apidocSignatureSpan">(json, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.index.xml2js">
+            function <span class="apidocSignatureSpan">xml-js.index.</span>xml2js
+            <span class="apidocSignatureSpan">(xml, userOptions)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml-js.index.xml2json">
+            function <span class="apidocSignatureSpan">xml-js.index.</span>xml2json
+            <span class="apidocSignatureSpan">(xml, userOptions)</span>
             </a>
 
         </li>
@@ -357,6 +403,8 @@ Or [run and edit](https://runkit.com/587874e079a2f60013c1f5ac/587874e079a2f60013
 
 
 
+
+
 </div>
 
 <div class="apidocSectionDiv">
@@ -518,7 +566,23 @@ common.ensureKeyExists('comment', options);
     });
     return output;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+options = common.mapCommandLineArgs(requiredArgs, optionalArgs);
+
+
+if (options.version) {
+	console.log(package.version);
+	process.exit(0);
+} else if (options.help || process.argv.length &lt;= 2 + requiredArgs.length - 1) {
+console.log(common.<span class="apidocCodeKeywordSpan">getCommandLineHelp</span>('xml-js', requiredArgs, optionalArgs));
+process.exit(process.argv.length &lt;= 2 ? 1 : 0);
+} else if ('src' in options) {
+//console.log('---------------' + fs.statSync(options.src).isFile());
+if (fs.statSync(options.src).isFile()) {
+    if (options.src.split('.').pop() === 'xml') {
+        output = xml2json(fs.readFileSync(options.src, 'utf8'), options);
+    } else if (options.src.split('.').pop() === 'json') {
+...</pre></li>
     </ul>
 
 
@@ -562,7 +626,23 @@ common.ensureKeyExists('comment', options);
     }
     return options;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	    stream += chunk;
+}
+});
+process.stdin.on('end', function ()Â&nbsp;{
+	process.stdout.write(xml2json(stream, {}) + '\n');
+});
+
+options = common.<span class="apidocCodeKeywordSpan">mapCommandLineArgs</span>(requiredArgs, optionalArgs);
+
+
+if (options.version) {
+	console.log(package.version);
+	process.exit(0);
+} else if (options.help || process.argv.length &lt;= 2 + requiredArgs.length - 1) {
+console.log(common.getCommandLineHelp('xml-js', requiredArgs, optionalArgs));
+...</pre></li>
     </ul>
 
 
@@ -593,6 +673,196 @@ addField('text', text, options);
 function onComment (comment) {
 if (options.ignoreComment) {
     return;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml-js.index" id="apidoc.module.xml-js.index">module xml-js.index</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.index.js2xml" id="apidoc.element.xml-js.index.js2xml">
+        function <span class="apidocSignatureSpan">xml-js.index.</span>js2xml
+        <span class="apidocSignatureSpan">(js, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">js2xml = function (js, options) {
+    'use strict';
+    options = validateOptions(options);
+    var xml = '';
+    if (options.compact) {
+        xml = writeElementsCompact(js, options, 0, true);
+    } else {
+        if (js[options.declarationKey]) {
+            xml += writeDeclaration(js[options.declarationKey], options);
+        }
+        if (js[options.elementsKey] &amp;&amp; js[options.elementsKey].length) {
+            xml += writeElements(js[options.elementsKey], options, 0, !xml);
+        }
+    }
+    return xml;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.index.json2xml" id="apidoc.element.xml-js.index.json2xml">
+        function <span class="apidocSignatureSpan">xml-js.index.</span>json2xml
+        <span class="apidocSignatureSpan">(json, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json2xml = function (json, options) {
+    'use strict';
+    if (json instanceof Buffer) {
+        json = json.toString();
+    }
+    var js = null;
+    if (typeof (json) === 'string') {
+        try {
+            js = JSON.parse(json);
+        } catch (e) {
+            throw new Error("The JSON structure is invalid");
+        }
+    } else {
+        js = json;
+    }
+    return js2xml(js, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+To convert JavaScript object to XML text, use `js2xml()`. To convert JSON text to XML text, use `json2xml()`.
+
+```js
+var convert = require('xml-js');
+var json = require('fs').readFileSync('test.json', 'utf8');
+var options = {ignoreText: true, spaces: 4};
+var result = convert.<span class="apidocCodeKeywordSpan">json2xml</span>(json, options);
+console.log(result);
+```
+
+### Options for Converting JS object / JSON â†’ XML
+
+The below options are applicable for both `js2xml()` and `json2xml()` functions.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.index.xml2js" id="apidoc.element.xml-js.index.xml2js">
+        function <span class="apidocSignatureSpan">xml-js.index.</span>xml2js
+        <span class="apidocSignatureSpan">(xml, userOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">xml2js = function (xml, userOptions) {
+
+    var parser = pureJsParser ? sax.parser(true, {}) : parser = new expat.Parser('UTF-8');
+    var result = {};
+    currentElement = result;
+
+    options = validateOptions(userOptions);
+
+    if (pureJsParser) {
+        parser.onopentag = onStartElement;
+        parser.ontext = onText;
+        parser.oncomment = onComment;
+        parser.onclosetag = onEndElement;
+        parser.onerror = onError;
+        parser.oncdata = onCdata;
+        parser.onprocessinginstruction = onDeclaration;
+    } else {
+        parser.on('startElement', onStartElement);
+        parser.on('text', onText);
+        parser.on('comment', onComment);
+        parser.on('endElement', onEndElement);
+        parser.on('error', onError);
+        //parser.on('startCdata', onStartCdata);
+        //parser.on('endCdata', onEndCdata);
+        //parser.on('entityDecl', onEntityDecl);
+    }
+
+    if (pureJsParser) {
+        parser.write(xml).close();
+    } else {
+        if (!parser.parse(xml)) {
+            throw new Error('XML parsing error: ' + parser.getError());
+        }
+    }
+
+    if (result[options.elementsKey]) {
+        var temp = result[options.elementsKey];
+        delete result[options.elementsKey];
+        result[options.elementsKey] = temp;
+        delete result.text;
+    }
+
+    return result;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+To convert XML text to JavaScript object, use `xml2js()`. To convert XML text to JSON text, use `xml2json()`.
+
+```js
+var convert = require('xml-js');
+var xml = require('fs').readFileSync('test.xml', 'utf8');
+var options = {ignoreText: true, alwaysChildren: true};
+var result = convert.<span class="apidocCodeKeywordSpan">xml2js</span>(xml, options); // or convert.xml2json(xml, options)
+console.log(result);
+```
+
+### Options for Converting XML â†’ JS object / JSON
+
+The below options are applicable for both `xml2js()` and `xml2json()` functions.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml-js.index.xml2json" id="apidoc.element.xml-js.index.xml2json">
+        function <span class="apidocSignatureSpan">xml-js.index.</span>xml2json
+        <span class="apidocSignatureSpan">(xml, userOptions)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">xml2json = function (xml, userOptions) {
+    'use strict';
+    var options, js, json, parentKey;
+    options = validateOptions(userOptions);
+    js = xml2js(xml, options);
+    parentKey = 'compact' in options &amp;&amp; options.compact ? '_parent' : 'parent';
+    if ('addParent' in options &amp;&amp; options.addParent) {
+        json = JSON.stringify(js, function (k, v) { return k === parentKey? '_' : v; }, options.spaces);
+    } else {
+        json = JSON.stringify(js, null, options.spaces);
+    }
+    return json.replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var xml =
+'&lt;?xml version="1.0" encoding="utf-8"?&gt;' +
+'&lt;note importance="high" logged="true"&gt;' +
+'    &lt;title&gt;Happy&lt;/title&gt;' +
+'    &lt;todo&gt;Work&lt;/todo&gt;' +
+'    &lt;todo&gt;Play&lt;/todo&gt;' +
+'&lt;/note&gt;';
+var result1 = convert.<span class="apidocCodeKeywordSpan">xml2json</span>(xml, {compact: true, spaces: 4});
+var result2 = convert.xml2json(xml, {compact: false, spaces: 4});
+console.log(result1, '\n', result2);
+```
+
+To see the result of this code, see the output above in *Synopsis* section.
+
+Or [run and edit](https://runkit.com/587874e079a2f60013c1f5ac/587874e079a2f60013c1f5ad) this code live in the browser.
 ...</pre></li>
     </ul>
 
